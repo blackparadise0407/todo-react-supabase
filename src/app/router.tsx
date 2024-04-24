@@ -1,5 +1,5 @@
 import { lazy } from 'react'
-import { createBrowserRouter } from 'react-router-dom'
+import { Navigate, createBrowserRouter } from 'react-router-dom'
 
 import App from './App'
 import { routes } from './routes'
@@ -9,7 +9,7 @@ const Login = lazy(() => import('~/views/auth/Login'))
 const LoginLayout = lazy(() => import('~/views/auth/LoginLayout'))
 const LoginCredentials = lazy(() => import('~/views/auth/LoginCredentials'))
 const ForgotPassword = lazy(() => import('~/views/auth/ForgotPassword'))
-const Main = lazy(() => import('~/views/main/Main'))
+const MyDay = lazy(() => import('~/views/main/MyDay'))
 
 export const router = createBrowserRouter([
   {
@@ -20,9 +20,10 @@ export const router = createBrowserRouter([
         path: routes.index,
         Component: Layout,
         children: [
+          { index: true, element: <Navigate to={routes.myday} /> },
           {
-            index: true,
-            Component: Main,
+            path: routes.myday,
+            Component: MyDay,
           },
         ],
       },

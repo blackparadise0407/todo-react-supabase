@@ -5,6 +5,7 @@ import ReactDOM from 'react-dom/client'
 import { RouterProvider } from 'react-router-dom'
 
 import '~/libs/i18n.ts'
+import '~/libs/dayjs.ts'
 
 import './index.css'
 

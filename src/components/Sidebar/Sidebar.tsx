@@ -1,6 +1,9 @@
+import clsx from 'clsx'
+import { FaPlus } from 'react-icons/fa'
+import { Link } from 'react-router-dom'
+
 import { useAuth, useList } from '~/hooks'
 import { Avatar } from '../Avatar'
-import { Link } from 'react-router-dom'
 
 export default function Sidebar() {
   const { user } = useAuth()
@@ -30,11 +33,18 @@ export default function Sidebar() {
 
       <ul className="menu w-56 rounded-box bg-base-200">
         <li>
-          <h2 className="menu-title text-lg">My lists</h2>
+          <h2 className="menu-title text-lg">
+            My lists
+            <button className="btn btn-circle btn-primary btn-sm float-end">
+              <FaPlus />
+            </button>
+          </h2>
           <ul>
             {list?.map((it) => (
               <li key={it.id}>
-                <Link to="#">{it.name}</Link>
+                <Link to="#" className={clsx(it.is_default && 'active')}>
+                  {it.name}
+                </Link>
               </li>
             ))}
           </ul>

@@ -13,4 +13,5 @@ export const queryKeys = {
   currentUser: ['currentUser'],
   quote: ['quote'],
   list: (userId: string) => ['list', userId],
+  todayTodo: ['todayTodo'],
 }

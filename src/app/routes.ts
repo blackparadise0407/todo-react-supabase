@@ -1,5 +1,6 @@
 export const routes = {
   index: '/',
+  myday: '/myday',
   auth: '/auth',
   login: '/auth/login',
   loginCredentials: '/auth/credentials',

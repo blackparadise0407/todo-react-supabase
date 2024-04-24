@@ -1,5 +1,4 @@
 import { Provider } from '@supabase/supabase-js'
-import clsx from 'clsx'
 import { SubmitHandler, useForm } from 'react-hook-form'
 import { useTranslation } from 'react-i18next'
 import { FaArrowRight, FaFacebookF, FaGithub } from 'react-icons/fa'
