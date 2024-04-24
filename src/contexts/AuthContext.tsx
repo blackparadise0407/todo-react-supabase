@@ -17,7 +17,11 @@ export const AuthContext = createContext<AuthContext>({
   user: null,
 })
 
-const publicRoutes = [routes.login]
+const publicRoutes = [
+  routes.login,
+  routes.loginCredentials,
+  routes.forgotPassword,
+]
 
 export function AuthContextProvider({ children }: AuthContextProviderProps) {
   const { pathname } = useLocation()
@@ -28,9 +32,8 @@ export function AuthContextProvider({ children }: AuthContextProviderProps) {
     if (!isFetchedAfterMount) {
       return
     }
-    const isPublicRoute = publicRoutes.some((route) => pathname === route)
-    const isLoginPage = pathname.includes(routes.login)
-    if (data && isLoginPage) {
+    const isPublicRoute = publicRoutes.some((route) => pathname.includes(route))
+    if (data && isPublicRoute) {
       navigate(routes.index)
     } else if (!data && !isPublicRoute) {
       navigate(routes.login)
